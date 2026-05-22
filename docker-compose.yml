@@ -1,0 +1,23 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # URL del backend - se configura según el entorno
+        VITE_API_URL: ${VITE_API_URL:-http://localhost:3001}
+    image: ep2-frontend:latest
+    container_name: innovatech-frontend
+    ports:
+      # Puerto externo:Puerto interno del contenedor
+      - "80:80"
+    environment:
+      - NGINX_HOST=localhost
+    restart: unless-stopped
+    # Red interna para comunicación entre contenedores
+    networks:
+      - innovatech-network
+
+networks:
+  innovatech-network:
+    driver: bridge
