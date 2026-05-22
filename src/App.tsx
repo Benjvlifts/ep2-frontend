@@ -32,7 +32,7 @@ function App() {
   return (
     <div className="app">
       <header>
-        <h1>🏢 Innovatech Chile</h1>
+        <h1>🏢 Innovatech Chile v2</h1>
         <p>Catálogo de Productos</p>
       </header>
       <main>
